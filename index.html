@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:consolas;
+
+        }
+        header{
+            color:green;
+            font-family:consolas;
+        }
+       
+        td,th{
+            border-style: solid;
+        }
+        table{
+            border-collapse: collapse;
+        }
+       
+        .container{
+            background:linear-gradient(to bottom,white,rgb(214, 245, 214));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            border-style:ridge;
+            border-color: green;
+            border-width: 1px;
+           
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            font-size: larger;
+        }
+        h2{
+            color: green;
+        }
+       
+        #grading-scale-container{
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #calculate-cgpa-container,#calculate-gpa-container,#predict-cgpa-container,#progress-chart-container{
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #footer-container{
+            text-align: center;
+            color: white;
+            background-color: black;
+            border-top: 1px solid green;
+            padding: 10px;
+
+        }
+        
+      
+
+    </style>
+    <script src="https://kit.fontawesome.com/f7df50b970.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header><h1><i class="fa-solid fa-graduation-cap fa-xl"></i>CGPA CALCULATOR FOR NIGERIAN STUDENTS</h1></header>
+        <div id="grading-scale-container" class="container">
+            <h3>NIGERIAN UNIVERSITIES GRADING SCALE</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scores</th>
+                            <th>Grades</th>
+                            <th>Grade points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>70% and Above</td>
+                            <td>A</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>60% - 69%</td>
+                            <td>B</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>50% - 59%</td>
+                            <td>C</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>45% - 49%</td>
+                            <td>D</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>40% - 44%</td>
+                            <td>E</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0% - 39%</td>
+                            <td>F</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <a>
+            <div id="calculate-cgpa-container" class="container">
+                <h2><i class="fa-solid fa-clipboard-list fa-xl"></i> </i> CALCULATE GPA</h2>
+                <p>click here to calculate your GPA for a single semester using your courses, grades, and course units.</p>
+            
+            </div>
+
+        </a>
+
+
+        <a href="page1.html">
+            <div id="calculate-gpa-container" class="container">
+                <h2><i class="fa-solid fa-calculator fa-xl"></i> </i> CALCULATE CGPA</h2>
+                <p>click here to calculate your total CGPA across all academic years to know your overall performance.</p>
+            </div>
+        </a>
+        <a>
+            <div id="predict-cgpa-container" class="container">
+                <h2><i class="fa-solid fa-lightbulb fa-xl"></i> </i> PREDICT CGPA</h2>
+                <p>Estimate your future CGPA based on your current academic performance and planned courses.</p>
+            </div>
+        </a>
+        <a>
+            <div id="progress-chart-container" class="container">
+                <h2><i class="fa-solid fa-chart-line fa-xl"> </i> VIEW PROGRESS CHART</h2>
+                <p>Visualise how your GPA can improve over the years</p>
+            </div>
+
+        </a>
+        
+    </main>
+    <footer>
+        <div id="footer-container">
+            <p>&copy; 2025 CGPA Calculator App for Nigerian Students. All rights reserved.</p>
+            <p>Built by Uchendu Uchenna</p>
+
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
