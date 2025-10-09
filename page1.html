@@ -8,6 +8,7 @@
     <style>
         header{
             color: green;
+          
         }
         body{
             font-family: consolas;
@@ -105,7 +106,7 @@
     <script src="https://kit.fontawesome.com/f7df50b970.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header><h1><i class="fa-solid fa-graduation-cap fa-xl"></i>CGPA CALCULATOR FOR NIGERIAN STUDENTS</h1></header>
+    <header><h1><i class="fa-solid fa-graduation-cap fa-xl"></i>  CGPA CALCULATOR FOR NIGERIAN STUDENTS</h1></header>
     <main>
         
         <div id="cgpa-control-button-container" class="button-container">
@@ -274,6 +275,8 @@
                 this.mainContainer.insertBefore(this.detailsContainer,this.CGPACalculatorButtonContainer)
                 this.detailsContainer.insertBefore(this.gpaContainer,this.ControlbuttonsContainer)
 
+                this.deleteCourse = this.deleteCourse.bind(this)
+
                 this.deletedAllCourses = false
             }
 
@@ -315,6 +318,9 @@
 
                 this.tbody = document.createElement("tbody")
                 this.trBody = document.createElement("tr")
+                this.trBody.setAttribute("id",`year${this.year}-semester${this.currentSemster}-table-row${this.courseNumber}`)
+                this.trBody.setAttribute("class",`year${this.year}-semester${this.currentSemster}-table-row`)
+
 
                 this.tdSN = document.createElement("td")
                 this.tdCourse = document.createElement("td")
@@ -323,6 +329,7 @@
                 this.tdDeleteCourseButton = document.createElement("td")
 
                 this.tdSN.textContent = `${this.courseNumber}`
+                this.tdSN.setAttribute("class",`year${this.year}-semester${this.currentSemster}-serial-number`)
                 this.course = document.createElement("input")
                 this.course.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course course-container`)
                 this.course.addEventListener("input",function(){
@@ -345,6 +352,9 @@
                 }
                 this.deleteCourseButton = document.createElement("button")
                 this.deleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
+                this.deleteCourseButton.setAttribute("id",`year${this.year}-semester${this.currentSemster}-delete-course-button${this.courseNumber}`)
+                this.deleteCourseButton.setAttribute("class",`year${this.year}-semester${this.currentSemster}-delete-course-button`)
+                this.deleteCourseButton.addEventListener("click",this.deleteCourse)
 
                 this.tdCourse.appendChild(this.course)
                 this.tdCourseUnit.appendChild(this.courseUnit)
@@ -375,6 +385,8 @@
                     this.courseNumber += 1
 
                     this.newTrBody = document.createElement("tr")
+                    this.newTrBody.setAttribute("id",`year${this.year}-semester${this.currentSemster}-table-row${this.courseNumber}`)
+                    this.newTrBody.setAttribute("class",`year${this.year}-semester${this.currentSemster}-table-row`)
 
                     this.newTdSN = document.createElement("td")
                     this.newTdCourse = document.createElement("td")
@@ -383,6 +395,7 @@
                     this.newTdDeleteCourseButton = document.createElement("td")
 
                     this.newTdSN.textContent = `${this.courseNumber}`
+                    this.newTdSN.setAttribute("class",`year${this.year}-semester${this.currentSemster}-serial-number`)
                     this.newCourse = document.createElement("input")
                     this.newCourse.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course course-container`)
                     this.newCourse.addEventListener("input",function(){
@@ -405,6 +418,9 @@
                 }
                     this.newDeleteCourseButton = document.createElement("button")
                     this.newDeleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
+                    this.newDeleteCourseButton.setAttribute("id",`year${this.year}-semester${this.currentSemster}-delete-course-button${this.courseNumber}`)
+                    this.newDeleteCourseButton.setAttribute("class",`year${this.year}-semester${this.currentSemster}-delete-course-button`)
+                    this.newDeleteCourseButton.addEventListener("click",this.deleteCourse)
 
                     this.newTdCourse.appendChild(this.newCourse)
                     this.newTdCourseUnit.appendChild(this.newCourseUnit)
@@ -524,6 +540,37 @@
                 this.gpa = this.coursesTotalGradePointsSum / this.courseUnitsAddedSum
 
                 this.gpaContainer.textContent = `GPA: ${this.gpa.toFixed(2)}`
+            }
+
+            deleteCourse(event){
+               
+                this.deleteButtonId = event.currentTarget.id
+                this.rowIdToDelete =   this.deleteButtonId.replace("delete-course-button","table-row")
+                this.tableRowToDelete = document.getElementById(this.rowIdToDelete)
+                this.tableRowToDelete.remove()
+
+                let nums = this.deleteButtonId.match(/\d+/g)
+                nums = nums.map(Number)
+
+                this.serialNumberClass = `year${nums[0]}-semester${nums[1]}-serial-number`
+                this.serialNumbersContainers = document.getElementsByClassName(this.serialNumberClass)
+                for(let i = 0; i < this.serialNumbersContainers.length;i++){
+                    this.serialNumbersContainers[i].textContent = i+1
+                    this.courseNumber = i+1
+                }
+
+                this.tableRowsClass = `year${nums[0]}-semester${nums[1]}-table-row`
+                this.tableRowContainers = document.getElementsByClassName(this.tableRowsClass)
+                for(let i = 0; i < this.tableRowContainers.length;i++){
+                   this.tableRowContainers[i].id = `year${nums[0]}-semester${nums[1]}-table-row${i+1}`
+                }
+
+                this.deleteButtonsClass = `year${nums[0]}-semester${nums[1]}-delete-course-button`
+                this.deleteButtonContainers = document.getElementsByClassName(this.deleteButtonsClass)
+                for(let i = 0; i < this.deleteButtonContainers.length;i++){
+                   this.deleteButtonContainers[i].id = `year${nums[0]}-semester${nums[1]}-delete-course-button${i+1}`
+                }
+
             }
   
         }
