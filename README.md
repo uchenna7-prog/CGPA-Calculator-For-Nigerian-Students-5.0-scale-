@@ -13,10 +13,15 @@ Built with simplicity, accuracy, and clarity in mind.
 ## Features 
 - Calculates **GPA** for a single semester
 - Calculates **CGPA** across multiple years
-- Supports **Nigerian gradind system**
+- Supports **Nigerian grading system**
 - Responsive design(works on all screen sizes)
 - Progress chart visualization
 
 ---
 ## preview
 ![1760010559340](https://github.com/user-attachments/assets/5d9357da-6eb9-40ff-bb3c-b189f072265c)
+
+## Built with
+**HTML5**
+**CSS3**
+**JavaScript(ES6)**
