@@ -285,7 +285,9 @@ class Semester{
             this.newCourseUnit = document.createElement("input")
             this.newCourseUnit.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course-unit course-unit-container`)
             this.newCourseUnit.addEventListener("input",function(){
-                this.value = this.value.toUpperCase()
+                if(isNaN(this.value)){
+                    alert("you are to enter only numbers in this column")
+                }
             })
 
             this.newGradeOption = document.createElement("select")

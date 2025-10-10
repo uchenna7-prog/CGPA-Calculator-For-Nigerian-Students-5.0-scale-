@@ -41,7 +41,7 @@ class gpaCalculator{
 
         this.newCourseUnit = document.createElement("input")
         this.newCourseUnit.setAttribute("class","course-unit-container")
-        this.newCourseunit.addEventListener("input",function(){
+        this.newCourseUnit.addEventListener("input",function(){
             if(isNaN(this.value)){
                 alert("you are to enter only numbers in this column")
             }
@@ -56,6 +56,9 @@ class gpaCalculator{
             this.newGradeOptionContainer.appendChild(this.option)
         }
         this.newDeleteButton = document.createElement("button")
+        this.newDeleteButton.setAttribute("class","delete-button")
+        this.newDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
+
 
         this.newCourseTableData.appendChild(this.newCourse)
         this.newCourseUnitTableData.appendChild(this.newCourseUnit)
@@ -74,10 +77,14 @@ class gpaCalculator{
     }
 
     storeEntries(){
+        
 
     }
 
     deleteAllCourses(){
+        this.semesterTable.remove()
+        this.courseNumber = 0
+        
 
     }
 
