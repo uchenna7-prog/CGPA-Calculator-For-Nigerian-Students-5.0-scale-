@@ -6,6 +6,10 @@ header{
     align-items: center;
     padding: 5px;
     width: 100%;
+    position:fixed;
+    
+    top: 0;
+    left:0;
         }
 
 #header-button{
@@ -17,8 +21,12 @@ header{
     font-size: 20px;
     cursor: pointer;
     padding: 5px;
+    
    
 
+}
+main{
+    margin-top: 70px;
 }
 a{
     text-decoration: none;

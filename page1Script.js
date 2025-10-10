@@ -106,8 +106,16 @@
         this.allCoursesTotalGradePointsSum = this.allCoursesTotalGradePoints.reduce((accumulator,initialValue)=>accumulator+initialValue,0)
         this.allSemestersCourseUnitsSum = this.allSemestersCourseUnits.reduce((accumulator,initialValue)=>accumulator+initialValue,0)
         this.cgpa = this.allCoursesTotalGradePointsSum / this.allSemestersCourseUnitsSum
-        this.cgpaContainer.textContent = `CURRENT CGPA: ${this.cgpa.toFixed(2)}`
-        this.mainContainer.insertBefore(this.cgpaContainer,this.CGPACalculatorButtonContainer)
+
+        if(isNaN(this.cgpa)){
+            alert("your are to enter only numbers in the course unit column\nMake sure you fill all added field")
+        }
+        else{
+            this.cgpaContainer.textContent = `CURRENT CGPA: ${this.cgpa.toFixed(2)}`
+            this.mainContainer.insertBefore(this.cgpaContainer,this.CGPACalculatorButtonContainer)
+        }
+        
+
     
     }
 
@@ -219,8 +227,10 @@ class Semester{
         this.courseUnit = document.createElement("input")
         this.courseUnit.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course-unit course-unit-container`)
         this.courseUnit.addEventListener("input",function(){
-            this.value = this.value.toUpperCase()
-        })
+                if(isNaN(this.value)){
+                    alert("you are to enter only numbers in this column")
+                }
+            })
 
         this.gradeOption = document.createElement("select")
         this.gradeOption.setAttribute("class",`year${this.year}-semester${this.currentSemster}-grade-option grade-option-container`)
@@ -365,9 +375,14 @@ class Semester{
     }
 
     deleteAllCourses(){
-        this.deletedAllCourses = true
-        this.table.remove()
-
+        if(this.deletedAllCourses)(
+            alert("No course to delete for this semester")
+        )
+        else{
+            this.deletedAllCourses = true
+            this.table.remove()
+        }
+      
     }
 
     StoreEntries(){
@@ -420,8 +435,13 @@ class Semester{
         this.courseUnitsAddedSum = this.courseUnitsAdded.reduce((accumulator,initialValue)=>accumulator + initialValue,0)
 
         this.gpa = this.coursesTotalGradePointsSum / this.courseUnitsAddedSum
-
-        this.gpaContainer.textContent = `GPA: ${this.gpa.toFixed(2)}`
+        if(isNaN(this.gpa)){
+            alert("your are to enter only numbers in the course unit column\nMake sure you fill all added field")
+        }
+        else{
+            this.gpaContainer.textContent = `GPA: ${this.gpa.toFixed(2)}`
+        }
+        
     }
 
     deleteCourse(event){
