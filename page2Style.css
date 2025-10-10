@@ -1,24 +1,28 @@
- header{
-    color:green;
+header{
     font-family:consolas;
+    background-color: rgb(29, 134, 29);
+    height: 45px;
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 5px;
-    border-bottom: 1px solid green;
     margin-bottom: 20px;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
+        }
+
+#header-button{
+    background-color: rgb(81, 190, 81);
+    color:white;
+    border: none;
     border-radius: 5px;
-    border: 2px solid green;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+   
+
+}
+a{
+    text-decoration: none;
+    
 }
 
 body{
@@ -81,3 +85,16 @@ div{
     font-weight: bold;
     font-size: 25px;
 }
+
+@media (max-width: 600px) {
+    header {
+        font-size: 12px;
+        padding: 10px;
+    }
+    .container {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+
