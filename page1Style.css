@@ -1,0 +1,113 @@
+ header{
+    color:green;
+    font-family:consolas;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid green;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid green;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px
+          
+        }
+body{
+    font-family: consolas;
+    background:linear-gradient(to bottom,white,rgb(214, 245, 214));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-style:ridge;
+    
+}
+th,td{
+    border-style: solid;
+    overflow: hidden;
+    
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.course-container , .course-unit-container ,.grade-option-container{
+    width: 100%;
+    border: none;
+    outline: none;
+    
+    
+}
+
+#add-semester-button{
+    background-color: rgb(34,197,94);
+        color:white;
+}
+
+#remove-semester-button{
+    background-color: rgb(249,115,22) ;
+        color:white;
+}
+#calculate-cgpa-button{
+    background-color: rgb(124,58,237) ;
+        color:white;
+}
+.button-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+        color:white;
+    
+}
+.delete-all-courses-button{
+    background-color: rgb(220,38,38);
+    color:white;
+
+}
+.calculate-gpa-button{
+    background-color: rgb(37,99,235);
+    color:white;
+
+}
+.add-course-button{
+    background-color: rgb(251,191,36);
+    color:white;
+
+}
+.details-container{
+    border-style: ridge;
+    border-width: 1px;
+    border-color: green;
+}
+h2{
+    color: green;
+}
+button{
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.8;
+}
+div{
+    margin: 10px;
+}
+.gpa-container,#cgpa-container{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
