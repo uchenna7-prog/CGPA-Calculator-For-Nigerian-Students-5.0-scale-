@@ -1,4 +1,4 @@
- header{
+header{
     color:green;
     font-family:consolas;
     display: flex;
@@ -64,7 +64,7 @@ table{
 .button-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
-        color:white;
+    color:white;
     
 }
 .delete-all-courses-button{

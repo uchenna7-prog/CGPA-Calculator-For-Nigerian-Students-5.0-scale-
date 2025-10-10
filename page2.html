@@ -11,12 +11,47 @@
 <body>
     <header><h1><i class="fa-solid fa-graduation-cap fa-xl"></i>  CGPA CALCULATOR FOR NIGERIAN STUDENTS</h1></header>
     <main>
-        
-        <div id="cgpa-control-button-container" class="button-container">
-            <button id ="add-semester-button">ADD COURSE</button>
-            <button id ="remove-semester-button">DELETE ALL COURSES</button>
-            <button id ="calculate-cgpa-button">CALCULATE GPA</button>
-        </div>
+        <section>
+            <table id="semester-table">
+                <thead>
+                    <tr>
+                        <td>S/N</td>
+                        <td>COURSE CODES</td>
+                        <td>COURSE UNITS</td>
+                        <td>GRADES</td> 
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" class="course-container"></td>
+                        <td><input type="text" class="course-unit-container"></td>
+                        <td>
+                            <select class="grade-option-container">
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                            </select>
+                        </td>
+                        <td><button><i class="fa-solid fa-trash"></i></button></td>
+                    </tr>
+
+                    
+                </tbody>
+            </table>
+            <div id="gpa-container"></div>
+            <div id="button-container">
+                <button id ="add-course-button">ADD COURSE</button>
+                <button id ="delete-all-courses-button">DELETE ALL COURSES</button>
+                <button id ="calculate-gpa-button">CALCULATE GPA</button>
+            </div>
+
+        </section>
+     
     </main>
 
     <script src="page2Script.js"></script>
