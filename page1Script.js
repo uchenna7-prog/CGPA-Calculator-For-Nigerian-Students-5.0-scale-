@@ -375,6 +375,8 @@ class Semester{
     }
 
     deleteAllCourses(){
+        this.gpaContainer.textContent = ""
+
         if(this.deletedAllCourses)(
             alert("No course to delete for this semester")
         )
