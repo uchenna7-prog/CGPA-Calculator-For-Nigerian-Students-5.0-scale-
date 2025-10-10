@@ -1,0 +1,61 @@
+body{
+    font-family:consolas;
+    background:linear-gradient(to bottom,white,rgb(214, 245, 214));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin:0;
+    padding:0;
+}
+header{
+    color:green;
+    font-family:consolas;
+}
+
+td,th{
+    border-style: solid;
+}
+table{
+    border-collapse: collapse;
+}
+
+.container{
+    background:linear-gradient(to bottom,white,rgb(214, 245, 214));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-style:ridge;
+    border-color: green;
+    border-width: 1px;
+    
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    font-size: larger;
+}
+h2{
+    color: green;
+}
+
+#grading-scale-container{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#calculate-cgpa-container,#calculate-gpa-container,#predict-cgpa-container,#progress-chart-container{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#footer-container{
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-top: 1px solid green;
+    padding: 10px;
+
+}
+
+
