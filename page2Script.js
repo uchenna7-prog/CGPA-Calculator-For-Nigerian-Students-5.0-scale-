@@ -29,6 +29,7 @@ class gpaCalculator{
 
         this.deletedAllCourses = false
 
+        window.addEventListener("load",this.loadPage.bind(this))
        
         
 
@@ -81,17 +82,26 @@ class gpaCalculator{
         this.course.addEventListener("input",function(){
             this.value = this.value.toUpperCase()
         })
+        this.course.addEventListener("input",()=>{
+            this.storeEntries()
+        })
 
         this.courseUnit = document.createElement("input")
         this.courseUnit.setAttribute("class","course-unit-container")
         this.courseUnit.addEventListener("input",function(){
-                if(isNaN(this.value)){
-                    alert("you are to enter only numbers in this column")
-                }
+            if(isNaN(this.value)){
+                alert("you are to enter only numbers in this column")
+            }
             })
+        this.courseUnit.addEventListener("input",()=>{
+            this.storeEntries()
+        })
 
         this.gradeOption = document.createElement("select")
         this.gradeOption.setAttribute("class","grade-option-container")
+        this.gradeOption.addEventListener("change",()=>{
+            this.storeEntries()
+        })
 
         for(let i = 0; i < this.grades.length; i++){
             let option = document.createElement("option")
@@ -152,6 +162,9 @@ class gpaCalculator{
             this.newCourse.addEventListener("input",function(){
                 this.value = this.value.toUpperCase()
             })
+            this.newCourse.addEventListener("input",()=>{
+                this.storeEntries()
+            })
 
             this.newCourseUnit = document.createElement("input")
             this.newCourseUnit.setAttribute("class","course-unit-container")
@@ -160,10 +173,16 @@ class gpaCalculator{
                     alert("you are to enter only numbers in this column")
                 }
             })
+            this.newCourseUnit.addEventListener("input",()=>{
+                this.storeEntries()
+            })
 
 
             this.newGradeOptionContainer = document.createElement("select")
             this.newGradeOptionContainer.setAttribute("class","grade-option-container")
+            this.newGradeOptionContainer.addEventListener("change",()=>{
+                this.storeEntries()
+            })
             for(let i = 0; i < this.grades.length; i++){
                 this.option = document.createElement("option")
                 this.option.textContent = this.grades[i]
@@ -236,15 +255,24 @@ class gpaCalculator{
             this.coursesTotalGradePoints.push(parseFloat(this.courseUnitsAdded[i]) * parseFloat(this.gradePoints[i]))
         }
 
+        localStorage.setItem("coursesAdded",JSON.stringify(this.coursesAdded))
+        localStorage.setItem("courseUnitsAdded",JSON.stringify(this.courseUnitsAdded))
+        localStorage.setItem("gradesAdded",JSON.stringify(this.gradesAdded))
+
         
 
     }
 
     deleteAllCourses(){
-        this.deletedAllCourses = true
-        this.semesterTable.remove()
-        this.courseNumber = 0
         this.gpaContainer.textContent = ""
+
+        if(this.deletedAllCourses)(
+            alert("No course to delete for this semester")
+        )
+        else{
+            this.deletedAllCourses = true
+            this.table.remove()
+        }
         
 
     }
@@ -294,6 +322,35 @@ class gpaCalculator{
         }
 
     }
+
+    loadPage(){
+        this.coursesAdded = JSON.parse(localStorage.getItem("coursesAdded"))|| []
+        this.courseUnitsAdded = JSON.parse(localStorage.getItem("courseUnitsAdded"))|| []
+        this.gradesAdded = JSON.parse(localStorage.getItem("gradesAdded"))|| []
+
+        if(this.coursesAdded.length  > 0){
+            for(let i = 0; i < (this.coursesAdded.length)-1;i++){
+                this.addCourse()    
+            }
+            this.courseContainers = document.getElementsByClassName("course-container")
+            for(let i = 0; i < this.courseContainers.length;i++){
+                this.courseContainers[i].value = this.coursesAdded[i]
+            }
+            this.courseUnitContainers = document.getElementsByClassName("course-unit-container")
+            for(let i = 0; i < this.courseUnitContainers.length;i++){
+                this.courseUnitContainers[i].value = this.courseUnitsAdded[i]
+            }
+            this.gradeContainers = document.getElementsByClassName("grade-option-container")
+            for(let i = 0; i < this.gradeContainers.length;i++){
+                this.gradeContainers[i].value = this.gradesAdded[i]
+            }
+
+        }
+
+        
+
+    }
+
 
         
         

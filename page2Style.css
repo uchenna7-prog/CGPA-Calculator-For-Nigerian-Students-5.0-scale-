@@ -47,6 +47,7 @@ th,td{
 table{
     border-collapse: collapse;
     width: 100%;
+    background-color: white;
 }
 .course-container , .course-unit-container ,.grade-option-container{
     width: 100%;
