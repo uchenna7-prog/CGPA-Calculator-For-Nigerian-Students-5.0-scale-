@@ -100,9 +100,9 @@ class gpaCalculator{
         }
         this.deleteCourseButton = document.createElement("button")
         this.deleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
-        this.deleteCourseButton.setAttribute("id",`delete-course-button${this.courseNumber}`)
+        this.deleteCourseButton.setAttribute("id",`delete-button${this.courseNumber}`)
         this.deleteCourseButton.setAttribute("class","delete-course-button")
-        this.deleteCourseButton.addEventListener("click",this.deleteCourse)
+        this.deleteCourseButton.addEventListener("click",this.deleteCourse.bind(this))
 
         this.tdCourse.appendChild(this.course)
         this.tdCourseUnit.appendChild(this.courseUnit)
@@ -135,6 +135,8 @@ class gpaCalculator{
 
             this.courseNumber += 1
             this.newTableRow = document.createElement("tr")
+            this.newTableRow.setAttribute("id",`table-row${this.courseNumber}`)
+            this.newTableRow.setAttribute("class","table-row")
 
             this.newSerialNumTableData = document.createElement("td")
             this.newCourseTableData = document.createElement("td") 
@@ -143,6 +145,7 @@ class gpaCalculator{
             this.newDeleteButtonTableData = document.createElement("td")
 
             this.newSerialNumTableData.textContent = this.courseNumber
+            this.newSerialNumTableData.setAttribute("class","serial-number")
 
             this.newCourse = document.createElement("input")
             this.newCourse.setAttribute("class","course-container")
@@ -168,6 +171,8 @@ class gpaCalculator{
             }
             this.newDeleteButton = document.createElement("button")
             this.newDeleteButton.setAttribute("class","delete-button")
+            this.newDeleteButton.setAttribute("id",`delete-button${this.courseNumber}`)
+            this.newDeleteButton.addEventListener("click",this.deleteCourse.bind(this))
             this.newDeleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
 
 
@@ -261,7 +266,35 @@ class gpaCalculator{
 
     }
 
-    deleteCourse(){}
+    deleteCourse(event){
+        this.deleteButtonId = event.currentTarget.id
+        this.rowIdToDelete =   this.deleteButtonId.replace("delete-button","table-row")
+        this.tableRowToDelete = document.getElementById(this.rowIdToDelete)
+        this.tableRowToDelete.remove()
+
+        this.serialNumbersContainers = document.getElementsByClassName("serial-number")
+        for(let i = 0; i < this.serialNumbersContainers.length;i++){
+            this.serialNumbersContainers[i].textContent = i+1
+            this.courseNumber = i+1
+        }
+
+        this.tableRowContainers = document.getElementsByClassName("table-row")
+      
+        for(let i = 0; i < this.tableRowContainers.length;i++){
+            this.tableRowContainers[i].id = `table-row${i+1}`
+        }
+
+        this.deleteButtonContainers = document.getElementsByClassName("delete-button")
+        for(let i = 0; i < this.deleteButtonContainers.length;i++){
+            this.deleteButtonContainers[i].id = `delete-button${i+1}`
+        }
+
+        if(this.tableRowContainers.length === 0){
+            this.courseNumber = 0
+        }
+
+    }
+
         
         
 

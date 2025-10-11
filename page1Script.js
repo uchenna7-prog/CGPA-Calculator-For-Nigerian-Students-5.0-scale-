@@ -163,7 +163,6 @@ class Semester{
         this.mainContainer.insertBefore(this.detailsContainer,this.CGPACalculatorButtonContainer)
         this.detailsContainer.insertBefore(this.gpaContainer,this.ControlbuttonsContainer)
 
-        this.deleteCourse = this.deleteCourse.bind(this)
 
         this.deletedAllCourses = false
     }
@@ -244,7 +243,7 @@ class Semester{
         this.deleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
         this.deleteCourseButton.setAttribute("id",`year${this.year}-semester${this.currentSemster}-delete-course-button${this.courseNumber}`)
         this.deleteCourseButton.setAttribute("class",`year${this.year}-semester${this.currentSemster}-delete-course-button`)
-        this.deleteCourseButton.addEventListener("click",this.deleteCourse)
+        this.deleteCourseButton.addEventListener("click",this.deleteCourse.bind(this))
 
         this.tdCourse.appendChild(this.course)
         this.tdCourseUnit.appendChild(this.courseUnit)
@@ -312,7 +311,7 @@ class Semester{
             this.newDeleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
             this.newDeleteCourseButton.setAttribute("id",`year${this.year}-semester${this.currentSemster}-delete-course-button${this.courseNumber}`)
             this.newDeleteCourseButton.setAttribute("class",`year${this.year}-semester${this.currentSemster}-delete-course-button`)
-            this.newDeleteCourseButton.addEventListener("click",this.deleteCourse)
+            this.newDeleteCourseButton.addEventListener("click",this.deleteCourse.bind(this))
 
             this.newTdCourse.appendChild(this.newCourse)
             this.newTdCourseUnit.appendChild(this.newCourseUnit)
@@ -473,6 +472,12 @@ class Semester{
         this.deleteButtonContainers = document.getElementsByClassName(this.deleteButtonsClass)
         for(let i = 0; i < this.deleteButtonContainers.length;i++){
             this.deleteButtonContainers[i].id = `year${nums[0]}-semester${nums[1]}-delete-course-button${i+1}`
+        }
+
+        if(this.tableRowContainers.length === 0){
+            console.log(this.tableRowContainers.length)
+            console.log(this.courseNumber)
+            this.courseNumber = 0
         }
 
     }
