@@ -204,10 +204,18 @@ class Semester{
         this.table.appendChild(this.trHead)
 
         this.tbody = document.createElement("tbody")
+
+        this.addTableRow(this.tbody)
+
+        this.table.appendChild(this.tbody)
+        this.detailsContainer.appendChild(this.table)
+       
+    }
+
+    addTableRow(tbody){
         this.trBody = document.createElement("tr")
         this.trBody.setAttribute("id",`year${this.year}-semester${this.currentSemster}-table-row${this.courseNumber}`)
         this.trBody.setAttribute("class",`year${this.year}-semester${this.currentSemster}-table-row`)
-
 
         this.tdSN = document.createElement("td")
         this.tdCourse = document.createElement("td")
@@ -256,11 +264,9 @@ class Semester{
         this.trBody.appendChild(this.tdGrade)
         this.trBody.appendChild(this.tdDeleteCourseButton)
 
-        this.tbody.appendChild(this.trBody)
+        tbody.appendChild(this.trBody)
         
-        this.table.appendChild(this.tbody)
-        this.detailsContainer.appendChild(this.table)
-
+        
     }
 
     addCourse(){
@@ -273,58 +279,7 @@ class Semester{
         else{
             this.courseNumber += 1
 
-            this.newTrBody = document.createElement("tr")
-            this.newTrBody.setAttribute("id",`year${this.year}-semester${this.currentSemster}-table-row${this.courseNumber}`)
-            this.newTrBody.setAttribute("class",`year${this.year}-semester${this.currentSemster}-table-row`)
-
-            this.newTdSN = document.createElement("td")
-            this.newTdCourse = document.createElement("td")
-            this.newTdCourseUnit = document.createElement("td")
-            this.newTdGrade = document.createElement("td")
-            this.newTdDeleteCourseButton = document.createElement("td")
-
-            this.newTdSN.textContent = `${this.courseNumber}`
-            this.newTdSN.setAttribute("class",`year${this.year}-semester${this.currentSemster}-serial-number`)
-            this.newCourse = document.createElement("input")
-            this.newCourse.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course course-container`)
-            this.newCourse.addEventListener("input",function(){
-                this.value = this.value.toUpperCase()
-            })
-
-            this.newCourseUnit = document.createElement("input")
-            this.newCourseUnit.setAttribute("class",`year${this.year}-semester${this.currentSemster}-course-unit course-unit-container`)
-            this.newCourseUnit.addEventListener("input",function(){
-                if(isNaN(this.value)){
-                    alert("you are to enter only numbers in this column")
-                }
-            })
-
-            this.newGradeOption = document.createElement("select")
-            this.newGradeOption.setAttribute("class",`year${this.year}-semester${this.currentSemster}-grade-option grade-option-container`)
-
-            for(let i = 0; i < this.grades.length; i++){
-                let option = document.createElement("option")
-                option.textContent = this.grades[i]
-                this.newGradeOption.appendChild(option)
-        }
-            this.newDeleteCourseButton = document.createElement("button")
-            this.newDeleteCourseButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
-            this.newDeleteCourseButton.setAttribute("id",`year${this.year}-semester${this.currentSemster}-delete-course-button${this.courseNumber}`)
-            this.newDeleteCourseButton.setAttribute("class",`year${this.year}-semester${this.currentSemster}-delete-course-button`)
-            this.newDeleteCourseButton.addEventListener("click",this.deleteCourse.bind(this))
-
-            this.newTdCourse.appendChild(this.newCourse)
-            this.newTdCourseUnit.appendChild(this.newCourseUnit)
-            this.newTdGrade.appendChild(this.newGradeOption)
-            this.newTdDeleteCourseButton.appendChild(this.newDeleteCourseButton)
-
-            this.newTrBody.appendChild(this.newTdSN)
-            this.newTrBody.appendChild(this.newTdCourse)
-            this.newTrBody.appendChild(this.newTdCourseUnit)
-            this.newTrBody.appendChild(this.newTdGrade)
-            this.newTrBody.appendChild(this.newTdDeleteCourseButton)
-
-            this.tbody.appendChild(this.newTrBody)
+            this.addTableRow(this.tbody)
         }
 
 
