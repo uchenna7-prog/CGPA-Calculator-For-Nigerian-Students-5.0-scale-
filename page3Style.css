@@ -1,38 +1,126 @@
-body{
+
+
+header{
     font-family:consolas;
+    background-color: rgb(29, 134, 29);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+        }
+
+#header-button{
+    background-color: rgb(81, 190, 81);
+    color:white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+   
+
+}
+main{
+    margin-top: 70px;
+}
+a{
+    text-decoration: none;
+    
+}
+
+body{
+    font-family: consolas;
     background:linear-gradient(to bottom,white,rgb(214, 245, 214));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin:0;
-    padding:0;
+    }
+.initial-input-containers{
+    color: green;
 }
-header{
-    color:white;
-    background-color: green;
-    font-family:consolas;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-bottom: 1px solid green;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+th,td{
+    border-style: solid;
+    overflow: hidden;
     
-    border-radius: 5px;
-    border: 2px solid green;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
 
+.course-container , .course-unit-container ,.grade-option-container{
+    width: 100%;
+    border: none;
+    outline: none;
+    
+    
+}
+#cgpa-predictor-control-buttons-container{
+    width:100%; 
+    margin: 3px;
 
 }
 
+#predict-cgpa-button{
+    background-color: rgb(124,58,237) ;
+    width: 100%;
+    color:white;
+}
+.button-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    color:white;
+    
+}
+.delete-all-courses-button{
+    background-color: rgb(220,38,38);
+    color:white;
+
+}
+.predict-gpa-button{
+    background-color: rgb(37,99,235);
+    color:white;
+
+}
+.add-course-button{
+    background-color: rgb(251,191,36);
+    color:white;
+
+}
+.details-container{
+    border-style: ridge;
+    border-width: 1px;
+    border-color: green;
+    background-color: white;
+}
+h2{
+    color: green;
+}
+button{
+    border: none;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.8;
+}
+div{
+    margin: 10px;
+}
+.gpa-container,#cgpa-container{
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+}
 
 
 @media (max-width: 600px) {
@@ -43,14 +131,8 @@ header{
     .container {
         width: 100%;
         padding: 12px;
-    }
-    table, th, td {
-        font-size: 8px;
-    }
-    #footer-container {
-        font-size: 10px;
-        padding: 5px;
-    }
 }
 
+   
+}
 

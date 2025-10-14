@@ -39,6 +39,11 @@ body{
     background-size: cover;
     background-attachment: fixed;
     border-style:ridge;}
+
+label{
+    color: green;
+}
+
 th,td{
     border-style: solid;
     overflow: hidden;

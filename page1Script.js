@@ -2,7 +2,7 @@
     constructor(){
 
         this.mainContainer = document.querySelector("main")
-        this.CGPACalculatorButtonContainer = document.getElementById("cgpa-control-button-container")
+        this.CGPACalculatorButtonContainer = document.getElementById("cgpa-control-buttons-container")
 
         this.semestersAdded = []
 
@@ -430,8 +430,6 @@ class Semester{
         }
 
         if(this.tableRowContainers.length === 0){
-            console.log(this.tableRowContainers.length)
-            console.log(this.courseNumber)
             this.courseNumber = 0
         }
 
