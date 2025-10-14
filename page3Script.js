@@ -23,6 +23,7 @@ class cgpaPredictor{
         this.currentSemster = 0
        
         this.currentCgpa = document.getElementById("current-cgpa")
+        this.numberofCourseUnitsTaken = document.getElementById("previous-total-course-unit")
         this.numberOfSemesterAheadOption = document.getElementById("number-of-semester-ahead-option")
 
         this.numberOfSemesterAheadOption.addEventListener("change",this.createSemesters.bind(this))
@@ -50,10 +51,12 @@ class cgpaPredictor{
 
                     this.semestersContainer.appendChild(this.semester.semesterContainer)
                     this.semestersContainer.appendChild(this.semester.detailsContainer)
-                    this.semestersContainer.appendChild(this.cgpaContainer)
+                   
                     this.semestersContainer.appendChild(this.CGPAPredictorCalcButtonContainer)
+
                     this.mainContainer.appendChild(this.semestersContainer)
         }
+           
             this.ChangedNumberOfSemesterAhead = false
         
         }
@@ -80,16 +83,22 @@ class cgpaPredictor{
 
         }
 
+        this.previousGradePointsSum = parseFloat(this.currentCgpa.value) * parseFloat(this.numberofCourseUnitsTaken.value)
+        
         this.allCoursesTotalGradePointsSum = this.allCoursesTotalGradePoints.reduce((accumulator,initialValue)=>accumulator+initialValue,0)
         this.allSemestersCourseUnitsSum = this.allSemestersCourseUnits.reduce((accumulator,initialValue)=>accumulator+initialValue,0)
-        this.cgpa = this.allCoursesTotalGradePointsSum / this.allSemestersCourseUnitsSum
+
+        this.cumulativeGradePointsSum = this.previousGradePointsSum  + this.allCoursesTotalGradePointsSum
+        this.cumulativeCourseUnitsSum = parseFloat(this.numberofCourseUnitsTaken.value) + this.allSemestersCourseUnitsSum
+
+        this.cgpa = this.cumulativeGradePointsSum / this.cumulativeCourseUnitsSum
 
         if(isNaN(this.cgpa)){
             alert("your are to enter only numbers in the course unit column\nMake sure you fill all added field")
         }
         else{
             this.cgpaContainer.textContent = `PREDICTED CGPA: ${this.cgpa.toFixed(2)}`
-            this.mainContainer.insertBefore(this.cgpaContainer,this.CGPACalculatorButtonContainer)
+            this.semestersContainer.insertBefore(this.cgpaContainer,this.CGPAPredictorCalcButtonContainer)
         }
         
 
