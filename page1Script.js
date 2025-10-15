@@ -126,7 +126,7 @@ class Semester{
     constructor(currentSemster,year){
 
         this.mainContainer = document.querySelector("main")
-        this.CGPACalculatorButtonContainer = document.getElementById("cgpa-control-button-container")
+        this.CGPACalculatorButtonContainer = document.getElementById("cgpa-control-buttons-container")
 
         
         this.courseNumber = 1
